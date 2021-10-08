@@ -4,10 +4,26 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/style.css" />
-    <title>sness</title>
+    <link rel="stylesheet" href="/css/stylesnes.css" />
+    <title>snes</title>
   </head>
   <body>
-    <script src="/js/script.js"></script>
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="/">Home</a>
+      <a href="/cadastro">Add Game</a>
+      <a href="/md">Megadrive</a>
+      <a href="/snes">Super Nintendo</a>
+    </div>
+    <span style="font-size:30px;cursor:pointer;color:white;text-shadow:-1px -1px black" onclick="openNav()">&#9776; Menu</span>
+    <div class="1">
+      <% Game.forEach((item, find) => { %>
+     <a href="/details/<%= find%>"><img src=<%= item.Img %> width="380" height="310"></a>
+     <a href="https://myemulator.online/emu?game=MzM2" target="_blank">
+     <h2 class="button button-pink send-bd">Jogar: <%= item.Nome%></h2>
+    </a>
+    <% }) %>
+    </div>
+    <script src="/script/script.js"></script>
   </body>
 </html>
