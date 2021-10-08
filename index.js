@@ -26,8 +26,12 @@ app.get("/", (req, res) => {
     });
   });
 
-  app.get("/cadastro", (req, res) => {
-    res.render("cadastro");
+  app.get("/cadastrosnes", (req, res) => {
+    res.render("cadastrosnes");
+  });
+
+  app.get("/cadastromd", (req, res) => {
+    res.render("cadastromd");
   });
 
   app.get("/snes", (req, res) => {
