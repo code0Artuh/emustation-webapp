@@ -115,7 +115,7 @@ body {
   margin: 15% auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 80%;
+  width: 50%;
 }
 
 .close {
@@ -132,3 +132,60 @@ body {
   cursor: pointer;
 }
 /* Modal - fim */
+
+/* Form - Inicio*/
+
+.wrapper {
+  max-width: 500px;
+  width: 100%;
+  background: transparent;
+  margin: 20px auto;
+  padding: 30px;
+}
+.wrapper .title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #000;
+  text-transform: uppercase;
+  text-align: center;
+}
+.wrapper .form {
+  width: 100%;
+}
+.wrapper .form .input_field {
+  margin-bottom: 15px;
+}
+
+.wrapper .form .input_field label {
+  width: 200%;
+  color: #000;
+  margin-right: 10px;
+  font-size: 14px;
+}
+
+.wrapper .form .input_field .input {
+  width: 100%;
+  outline: none;
+  border: 1px solid #000;
+  border-radius: 3px;
+  transition: all 0.3s ease-in-out;
+}
+.wrapper .form .btn {
+  width: 100%;
+  padding: 8px 10px;
+  font-size: 15px;
+  border: 0px;
+  background: #ccc;
+  color: #000;
+  cursor: pointer;
+  border-radius: 3px;
+  outline: none;
+}
+
+.wrapper .form .btn:hover {
+  background: #000;
+  color: #fff;
+}
+
+/* Form - Fim*/
