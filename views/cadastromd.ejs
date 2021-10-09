@@ -9,12 +9,78 @@
   </head>
   <body>
     <div id="mySidenav" class="sidenav">
-      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
+        >&times;</a
+      >
       <a href="/">Home</a>
       <a href="/md">Megadrive</a>
       <a href="/snes">Super Nintendo</a>
     </div>
-    <span style="font-size:30px;cursor:pointer;color:white;text-shadow:-1px -1px black" onclick="openNav()">&#9776; Menu</span>
+    <p>
+      <div class="wrapper">
+        <div class="title">Cadastro de Jogo</div>
+        <div class="form">
+          <form action="/new" method="POST">
+            <div class="input_field" tabindex="1">
+              <label for="nome">Nome: </label>
+              <input
+                type="text"
+                name="nome"
+                class="input"
+                id="nome"
+                placeholder="Digite o nome"
+                required
+              />
+            </div>
+            <div class="input_field" tabindex="2">
+              <label for="tipo">Tipo: </label>
+              <input
+                type="text"
+                name="tipo"
+                class="input"
+                id="tipo"
+                placeholder="Digite o tipo"
+                required
+              />
+            </div>
+            <div class="input_field" tabindex="3">
+              <label for="imagem">Imagem: </label>
+              <input
+                type="text"
+                name="imagem"
+                class="input"
+                id="imagem"
+                placeholder="Digite o link da imagem"
+                required
+              />
+            </div>
+            <div class="input_field" tabindex="4">
+              <label for="descricao">Descrição: </label>
+              <input
+                type="text"
+                name="descricao"
+                class="input"
+                id="descricao"
+                placeholder="Digite a descrição"
+                required
+              />
+            </div>
+
+            <button type="submit">Cadastrar</button>
+          </form>
+        </div>
+      </div>
+    </p>
+    <span
+      style="
+        font-size: 30px;
+        cursor: pointer;
+        color: white;
+        text-shadow: -1px -1px black;
+      "
+      onclick="openNav()"
+      >&#9776; Menu</span
+    >
     <script src="/script/script.js"></script>
   </body>
 </html>
