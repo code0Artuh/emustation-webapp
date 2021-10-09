@@ -4,19 +4,123 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="/img/megaicon.png">
+    <!-- <meta http-equiv="refresh" content="5" /> -->
+    <link rel="shortcut icon" href="/img/megaicon.png" />
     <link rel="stylesheet" href="/css/stylemd.css" />
+
     <title>Sega MegaDrive™</title>
   </head>
   <body>
     <div id="mySidenav" class="sidenav">
-      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
+        >&times;</a
+      >
       <a href="/">Home</a>
-      <a href="/cadastromd">Add Game</a>
+      <a id="myBtn">Add Game</a>
       <a href="/md">Megadrive</a>
       <a href="/snes">Super Nintendo</a>
     </div>
-    <span style="font-size:30px;cursor:pointer;color:white;text-shadow:-1px -1px black" onclick="openNav()">&#9776; Menu</span>
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="wrapper">
+          <div class="title">Form de Cadastro</div>
+          <div class="form">
+            <form action="/new" method="POST">
+              <div class="input_field" tabindex="1">
+                <label for="titulo">Título: </label>
+                <input
+                  type="text"
+                  name="numero"
+                  class="input"
+                  id="numero"
+                  placeholder="Digite o título"
+                  required
+                />
+              </div>
+              <div class="input_field" tabindex="2">
+                <label for="titulo_original">Título Original: </label>
+                <input
+                  type="text"
+                  name="nome"
+                  class="input"
+                  id="nome"
+                  placeholder="Digite o título original"
+                  required
+                />
+              </div>
+              <div class="input_field" tabindex="3">
+                <label for="duracao">Duração: </label>
+                <input
+                  type="text"
+                  name="duracao"
+                  class="input"
+                  id="duracao"
+                  placeholder="Digite a duração do filme"
+                  required
+                />
+              </div>
+              <div class="input_field" tabindex="4">
+                <label for="imagem">Poster: </label>
+                <input
+                  type="text"
+                  name="imagem"
+                  class="input"
+                  id="imagem"
+                  placeholder="Digite o link do poster"
+                  required
+                />
+              </div>
+              <div class="input_field" tabindex="5">
+                <label for="ano">Ano: </label>
+                <input
+                  type="text"
+                  name="tipo"
+                  class="input"
+                  id="tipo"
+                  placeholder="Digite o ano de lançamento"
+                  required
+                />
+              </div>
+              <div class="input_field" tabindex="6">
+                <label for="sinopse">Sinopse: </label>
+                <input
+                  type="text"
+                  name="descricao"
+                  class="input"
+                  id="descricao"
+                  placeholder="Digite a descrição"
+                  required
+                />
+              </div>
+              <div class="input_field" tabindex="7">
+                <label for="diretor">Diretor: </label>
+                <input
+                  type="text"
+                  name="diretor"
+                  class="input"
+                  id="diretor"
+                  placeholder="Digite o nome do Diretor"
+                  required
+                />
+              </div>
+
+              <button type="submit">Cadastrar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <span
+      style="
+        font-size: 30px;
+        cursor: pointer;
+        color: white;
+        text-shadow: -1px -1px black;
+      "
+      onclick="openNav()"
+      >&#9776; Menu</span
+    >
     <script src="/script/script.js"></script>
   </body>
 </html>
