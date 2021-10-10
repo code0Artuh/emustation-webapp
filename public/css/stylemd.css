@@ -97,7 +97,7 @@ body {
 /* Modal - inicio */
 
 .modal {
-  display: fixed;
+  display: none;
   position: fixed;
   z-index: 1;
   left: 0;
