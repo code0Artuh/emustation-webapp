@@ -14,6 +14,7 @@ html {
 
 body {
   background: url(/img/backnew.png);
+  /* background: url(/img/background_sega.jpg); */
   background-repeat: no-repeat;
   background-size: cover;
   background-color: black;
@@ -96,8 +97,8 @@ body {
 
 .wrapper {
   position: absolute;
-  top: 15%;
-  left: 25%;
+  top: 20%;
+  left: 37%;
   max-width: 500px;
   width: 100%;
   background: opacity;
