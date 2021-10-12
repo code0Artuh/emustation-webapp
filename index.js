@@ -3,23 +3,22 @@ const path = require('path');
 const app = express();
 const port = process.env.PORT || 3000;
 
+//importando os dois js que estão interligando com o banco de dados
 const database = require('./db');
 const jogos = require('./jogos');
 
+const lista = [];
+//funções async trabalhando com promise com o banco de dados
 (async () => {
     await database.sync();
+    const product = await jogos.findAll();
+    console.log(product);
+
 })();
 
 app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded());
-
-const Game = jogos.create({
-    Nome: "The Legend of Zelda",
-    Ano: "1997",
-    Link:"https://myemulator.online/emu?game=MzM2",
-    Img: "/img/zelda.png"
-});
 
 
 app.get("/", (req, res) => {
@@ -39,15 +38,35 @@ app.get("/", (req, res) => {
   });
 
   app.get("/cadastromd", (req, res) => {
+
     res.render("cadastromd");
   });
 
   app.get("/snes", (req, res) => {
-    res.render("snes",  {Game});
+    res.render("snes");
   }); 
 
   app.get("/md", (req, res) => {
-    res.render("md");
+    jogos.findAll();
+    res.render("md", {lista});
+  });
+
+
+  //Aqui esta recebendo os cadastros e mandando pro banco de dados
+  app.post("/new", (req, res) => {
+    const {
+      nome,
+      tipo,
+      imagem,
+      descricao
+    } = req.body;
+    jogos.create({
+      nome:nome,
+      tipo:tipo,
+      descricao:descricao,
+      imagem:imagem
+    })
+    res.redirect("/")
   });
 
 
