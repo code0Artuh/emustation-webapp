@@ -61,6 +61,11 @@ body {
     font-size: 18px;
   }
 }
+
+#myBtn{
+  cursor: pointer;
+}
+
 .button-pink {
   background: #bdb9b8;
 }

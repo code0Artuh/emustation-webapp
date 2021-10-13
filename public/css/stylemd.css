@@ -19,6 +19,10 @@ body {
   background-color: black;
 }
 
+#myBtn{
+  cursor: pointer;
+}
+
 .button-pink {
   background: #bdb9b8;
 }

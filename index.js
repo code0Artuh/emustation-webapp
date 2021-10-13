@@ -2,6 +2,7 @@ const  express = require('express');
 const path = require('path');
 const app = express();
 const port = process.env.PORT || 3000;
+require('dotenv').config();
 
 //importando os dois js que estão interligando com o banco de dados
 const database = require('./model/database/index.js');
@@ -50,14 +51,45 @@ app.get("/", (req, res) => {
       descricao,
       cons
     } = req.body;
-    jogos.create({
-      nome:nome,
-      tipo:tipo,
-      descricao:descricao,
-      imagem:imagem,
-      cons:cons
-    })
-    res.redirect("/")
+    if (!nome) {
+      res.render("details", {
+        mensagem: "Nome é obrigatório",
+      });
+    }
+    if (!imagem) {
+      res.render("details", {
+        mensagem: "Imagem é obrigatório",
+      });
+    }
+    if (!tipo) {
+      res.render("details", {
+        mensagem: "Tipo é obrigatório",
+      });
+    }
+    if (!descricao) {
+      res.render("details", {
+        mensagem: "Descrição é obrigatório",
+      });
+    }
+    if (!cons) {
+      res.render("details", {
+        mensagem: "Snes ou Md é obrigatório",
+      });
+    }
+    try {
+      jogos.create({
+        nome:nome,
+        tipo:tipo,
+        descricao:descricao,
+        imagem:imagem,
+        cons:cons});
+        res.redirect("/")
+    } catch (err) {
+      console.log(err);
+      res.render("details", {
+        mensagem: "Ocorreu um erro ao cadastrar o jogo!",
+      });
+    }
   });
 
 
