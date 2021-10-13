@@ -24,21 +24,11 @@ app.get("/", (req, res) => {
     res.render("index")
   });
 
-  app.get("/details/:id", (req, res) => {
+  app.get("/details/:id", async (req, res) => {
     const id = req.params.id;
-    const jogo = Game[id];
-    res.render("details", {
-      jogo,
-    });
-  });
-
-  app.get("/cadastrosnes", (req, res) => {
-    res.render("cadastrosnes");
-  });
-
-  app.get("/cadastromd", (req, res) => {
-
-    res.render("cadastromd");
+    const lista = await jogos.findAll();
+    const jogo = lista[id];
+    res.render("md", {jogo});
   });
 
   app.get("/snes", (req, res) => {
@@ -47,7 +37,7 @@ app.get("/", (req, res) => {
 
   app.get("/md", async (req, res) => {
     const lista = await jogos.findAll();
-    res.render("md", {lista : lista});
+    res.render("md", {lista});
   });
 
 
