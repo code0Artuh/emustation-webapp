@@ -4,8 +4,8 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 //importando os dois js que estão interligando com o banco de dados
-const database = require('./db');
-const jogos = require('./jogos');
+const database = require('./model/database/index.js');
+const jogos = require('./model/index.js');
 
 //funções async trabalhando com promise com o banco de dados
 (async () => {
