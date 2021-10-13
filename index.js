@@ -26,17 +26,17 @@ app.get("/", (req, res) => {
 
   app.get("/details/:id", async (req, res) => {
     const id = req.params.id;
-    const lista = await jogos.findAll();
-    const jogo = lista[id];
-    res.render("md", {jogo});
+    const jogo = await jogos.findAll({from: {jogos}, where:{id:id}});
+    res.render("details", {jogo});
   });
 
-  app.get("/snes", (req, res) => {
-    res.render("snes");
+  app.get("/snes", async (req, res) => {
+    const lista = await jogos.findAll({from:{jogos},where:{cons:'Snes'}});
+    res.render("snes", {lista});
   }); 
 
   app.get("/md", async (req, res) => {
-    const lista = await jogos.findAll();
+    const lista = await jogos.findAll({from:{jogos},where:{cons:'Md'}});
     res.render("md", {lista});
   });
 
@@ -47,13 +47,15 @@ app.get("/", (req, res) => {
       nome,
       tipo,
       imagem,
-      descricao
+      descricao,
+      cons
     } = req.body;
     jogos.create({
       nome:nome,
       tipo:tipo,
       descricao:descricao,
-      imagem:imagem
+      imagem:imagem,
+      cons:cons
     })
     res.redirect("/")
   });

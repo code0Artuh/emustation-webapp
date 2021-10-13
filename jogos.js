@@ -8,6 +8,10 @@ const jogos = database.define('jogos',{
         allowNull: false,
         primaryKey: true,
     },
+    cons: {
+        type: Sequelize.STRING,
+        allowNull:false
+    },
     nome: {
         type: Sequelize.STRING,
         allowNull:false

@@ -17,6 +17,26 @@ html {
     background-color: black;
     }
 
+    .button-pink {
+      background: #bdb9b8;
+    }
+    .button {
+      font-size: 20px;
+      max-width: 240px;
+      border: 2px solid #000;
+      color: black;
+      border-radius: 28px;
+      padding: 15px 15px 16px 15px;
+      font-weight: 500;
+      text-decoration: none;
+      text-align: center;
+      display: block;
+    }
+    
+    .send-bd{
+      margin-left: 65px;
+    }
+
     .sidenav {
         height: 100%;
         width: 0;

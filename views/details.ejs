@@ -16,11 +16,11 @@
     </div>
     <span style="font-size:30px;cursor:pointer;color:white;text-shadow:-1px -1px black" onclick="openNav()">&#9776; Menu</span>
     <div class="1">
-      <% lista.forEach((lista, find) => { %>
-      <img src="<%=lista.imagem %>" width="380" height="310"
+      <% jogo.forEach((jogo, find) => { %>
+      <img src="<%=jogo.imagem %>" width="380" height="310"
       />
-        <h2 class="button button-pink send-bd"><%= lista.nome%></h2>
-        <h2 class="button button-pink send-bd"><%= lista.descricao%></h2>
+        <h2 class="button button-pink send-bd"><%= jogo.nome%></h2>
+        <h2 class="button button-pink send-bd"><%= jogo.descricao%></h2>
       </a>
       <% }) %>
     </div>
