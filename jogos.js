@@ -23,7 +23,12 @@ const jogos = database.define('jogos',{
     imagem: {
         type: Sequelize.STRING,
         allowNull:false
-    }
+    }},
+    {
+    freezeTableName: true,
+    timestamps: false,
+    createdAt: false,
+    updatedAt: false,
 });
 
 module.exports = jogos;

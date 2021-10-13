@@ -7,7 +7,6 @@ const port = process.env.PORT || 3000;
 const database = require('./db');
 const jogos = require('./jogos');
 
-const lista = [];
 //funções async trabalhando com promise com o banco de dados
 (async () => {
     await database.sync();
@@ -46,9 +45,9 @@ app.get("/", (req, res) => {
     res.render("snes");
   }); 
 
-  app.get("/md", (req, res) => {
-    jogos.findAll();
-    res.render("md", {lista});
+  app.get("/md", async (req, res) => {
+    const lista = await jogos.findAll();
+    res.render("md", {lista : lista});
   });
 
 
