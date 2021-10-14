@@ -97,13 +97,18 @@
       >&#9776; Menu</span
     >
     <div>
-      <% lista.forEach((lista) => { %>
-      <a href="/details/<%= lista.id%>"
-        ><img src="<%=lista.imagem %>" width="380" height="310"
-      /></a>
-        <h2 class="button button-pink send-bd"><%= lista.nome%></h2>
-      </a>
-      <% }) %>
+      <% lista.forEach((lista, find) => { %>
+        <a href="/details/<%= lista.id%>"
+          ><img src="<%=lista.imagem %>" width="380" height="310"
+        /></a>
+          <h2 class="button button-pink send-bd"><%= lista.nome%></h2>
+          <a href="/editar/<%= lista.id%>" class="sublin">
+          <h2 class="button button-pink send-bd">Editar</h2>
+          </a>
+          <a href="/delete/<%= lista.id%>" class="sublin">
+            <h2 class="button button-pink send-bd">Deletar</h2>
+            </a>
+        <% }) %>
     </div>
     <script src="/script/script.js"></script>
   </body>

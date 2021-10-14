@@ -77,6 +77,10 @@ body {
   margin-left: 50px;
 }
 
+.sublin {
+  text-decoration: none;
+}
+
 @media screen and (max-height: 450px) {
   .sidenav {
     padding-top: 15px;
