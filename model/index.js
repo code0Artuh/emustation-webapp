@@ -1,22 +1,30 @@
-const { Sequelize } = require('sequelize');
+const { Sequelize, DataTypes } = require('sequelize');
 const database = require('./database');
 
 const jogos = database.sequelize.define("jogos", {
-    ID: {
+    id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
         allowNull: false,
         primaryKey: true,
     },
-    Nome:{
+    nome:{
         type: Sequelize.STRING,
         allowNull: false,
     },
-    Descriçao:{
+    descricao:{
         type: Sequelize.STRING,
         allowNull: false,
     },
-    Setor:{
+    tipo:{
+        type: Sequelize.INTEGER,
+        allowNull: false,
+    },
+    imagem:{
+        type: Sequelize.INTEGER,
+        allowNull: false,
+    },
+    cons:{
         type: Sequelize.INTEGER,
         allowNull: false,
     }
