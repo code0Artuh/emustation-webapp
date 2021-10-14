@@ -4,9 +4,7 @@ const sequelize = new Sequelize(process.env.DATABASE_URL, {
   host:  process.env.DB_HOST,
   port: process.env.DB_PORT,
   dialect: 'postgres',
-  ssl: {
-    rejectUnauthorized: false
-  }
+  ssl: true
 });
 
 async function conectado(){
