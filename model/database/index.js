@@ -1,9 +1,20 @@
-const { Sequelize } = require("sequelize");
+const { Client } = require('pg');
 
-const sequelize = new Sequelize(process.env.DB_BASE, process.env.DB_USER,process.env.DB_PASS, {
-  host:  process.env.DB_HOST,
-  port: process.env.DB_PORT,
-  dialect: 'postgres'
+const client = new Client({
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false
+  }
 });
 
-module.exports = sequelize;
+client.connect();
+
+client.query('SELECT table_schema,table_name FROM information_schema.tables;', (err, res) => {
+  if (err) throw err;
+  for (let row of res.rows) {
+    console.log(JSON.stringify(row));
+  }
+  client.end();
+});
+
+module.exports = client;
