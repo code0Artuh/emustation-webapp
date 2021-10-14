@@ -4,6 +4,8 @@ const app = express();
 const port = process.env.PORT || 3000;
 require("dotenv").config();
 
+let message = "";
+
 //importando os dois js que estão interligando com o banco de dados
 const database = require("./model/database/index.js");
 const jogos = require("./model/index.js");
@@ -20,7 +22,10 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded());
 
 app.get("/", (req, res) => {
-  res.render("index");
+  setTimeout(() => {
+    message = "";
+  }, 1000);
+  res.render("index", {message});
 });
 
 app.get("/details/:id", async (req, res) => {
@@ -60,6 +65,26 @@ app.post("/editar/:id", async (req, res) => {
   nome: nome,
   descricao: descricao,
   imagem: imagem},{where:{id: id}});
+
+  message = "seu jogo foi editado com sucesso"
+
+  res.redirect("/");
+});
+
+app.get("/delete/:id", async (req, res) => {
+  const id = req.params.id;
+  const lista = await jogos.findAll({ from: { jogos }, where: { id: id } });
+  if (!lista) {
+    res.render("delete", { mensagem: "jogo não encontrado!" });
+  }
+  res.render("delete", { lista });
+});
+
+app.post("/delete/:id", async (req, res) => {
+  const jogo = await jogos.findByPk(req.params.id);
+
+  await jogo.destroy();
+  mensagem = `O ${jogo.nome} foi deletado com sucesso!`
 
   res.redirect("/");
 });
