@@ -4,7 +4,8 @@ const sequelize = new Sequelize({connectionString: process.env.DATABASE_URL,
   
   ssl: {
     rejectUnauthorized: false
-  }
+  },
+  dialect: "postgres"
 });
 
 async function conectado(){
