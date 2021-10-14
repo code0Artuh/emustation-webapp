@@ -9,7 +9,7 @@ let message = "";
 
 //importando os dois js que estão interligando com o banco de dados
 const database = require("./model/database/index.js");
-require("./model/index.js").jogos;
+const jogos = require("./model/index.js");
 
 
 app.set("view engine", "ejs");
