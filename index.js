@@ -125,6 +125,7 @@ app.post("/new", (req, res) => {
       imagem: imagem,
       cons: cons,
     });
+    message = "Jogo Cadastrado com sucesso!"
     res.redirect("/");
   } catch (err) {
     console.log(err);

@@ -8,6 +8,11 @@
     <title>Index</title>
   </head>
   <body>
+      <% if(message != "") {  %>
+          <section id="message">
+              <p><%= message %></p> <span id="close">&times;</span>
+          </section>
+      <% }  %>
     <div id="mySidenav" class="sidenav">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
       <a href="/"><img src="/img/home.png" height="25">Home</a>
@@ -19,5 +24,6 @@
     <embed  class="conteudo" src="/video/comercial.mp4" autostart="true" height="480" width="620" />
 </p>
     <script src="/script/script.js"></script>
+    <script src="/script/script2.js"></script>
   </body>
 </html>
