@@ -1,11 +1,11 @@
 const { Sequelize, DataType } = require("sequelize");
 
-
+Sequelize.defaults.ssl = true;
 const sequelize = new Sequelize(process.env.DATABASE_URL, {
   dialect:  'postgres',
   protocol: 'postgres',
   logging:  true ,
-  sslmode = require
+  ssl: true
 });
 
 async function conectado(){
