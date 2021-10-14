@@ -1,7 +1,8 @@
 const { Sequelize } = require("sequelize");
+const connectionString = 'postgres://lubqxysawbdpsj:cc5cb4e46a141af9618437eb8bbcfff3f6877f8643223596989d29cbfc0baf18@ec2-18-215-96-54.compute-1.amazonaws.com:5432/d59sl9b4pa23uj';
 
-const sequelize = new Sequelize({connectionString: process.env.DB_BASE,
-  
+
+const sequelize = new Sequelize({connectionString: connectionString,
   ssl: {
     rejectUnauthorized: false
   },
