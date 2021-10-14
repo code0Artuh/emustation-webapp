@@ -11,12 +11,6 @@ let message = "";
 const database = require("./model/database/index.js");
 const jogos = require("./model/index.js");
 
-//funções async trabalhando com promise com o banco de dados
-(async () => {
-  await database.sync();
-  const product = await jogos.findAll();
-  console.log(product);
-})();
 
 app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "public")));
