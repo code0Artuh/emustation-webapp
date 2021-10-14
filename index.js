@@ -79,7 +79,7 @@ app.post("/delete/:id", async (req, res) => {
   const jogo = await jogos.findByPk(req.params.id);
 
   await jogo.destroy();
-  menssage = `O ${jogo.nome} foi deletado com sucesso!`
+  message = `O ${jogo.nome} foi deletado com sucesso!`
 
   res.redirect("/");
 });
