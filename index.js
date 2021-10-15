@@ -23,6 +23,10 @@ app.get("/", (req, res) => {
   res.render("index", {message});
 });
 
+app.get("/mario", (req, res) => {
+  res.render("mario");
+});
+
 app.get("/details/:id", async (req, res) => {
   const id = req.params.id;
   const jogo = await jogos.findAll({ from: { jogos }, where: { id: id } });
