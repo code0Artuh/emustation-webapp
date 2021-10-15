@@ -19,3 +19,6 @@ Carrega os jogos direto do OneDrive.
 <div>
  <img src="https://github.com/TheDudeThatCode/TheDudeThatCode/blob/master/Assets/Mario_Gameplay.gif"/>
  </div>
+ <div>
+ <img src="https://i.ibb.co/C11HR5F/Screenshot-2.png"/>
+</div>
