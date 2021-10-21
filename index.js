@@ -60,12 +60,34 @@ app.post("/editar/:id", async (req, res) => {
   const jogo = await jogos.findAll({ from: { jogos }, where: { id: id } });
   const { nome, descricao, imagem } = req.body;
 
-  jogos.update({
-  nome: nome,
-  descricao: descricao,
-  imagem: imagem},{where:{id: id}});
-
-  message = "seu jogo foi editado com sucesso"
+if (!nome) {
+    res.render("details", {
+      mensagem: "Nome é obrigatório",
+    });
+  }
+  if (!imagem) {
+    res.render("details", {
+      mensagem: "Imagem é obrigatório",
+    });
+  }
+  if (!descricao) {
+    res.render("details", {
+      mensagem: "Descrição é obrigatório",
+    });
+  }
+  try {
+    jogos.update({
+      nome: nome,
+      descricao: descricao,
+      imagem: imagem},{where:{id: id}});
+      message = "seu jogo foi editado com sucesso"
+    res.redirect("/");
+  } catch (err) {
+    console.log(err);
+    res.render("details", {
+      mensagem: "Ocorreu um erro ao cadastrar o jogo!",
+    });
+  }
 
   res.redirect("/");
 });
